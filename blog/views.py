@@ -1,8 +1,11 @@
 from django.shortcuts import render
-from .constants import posts
+# from .constants import posts
+from .models import Post
+
 def home(request):
+   
     context = {
-        'posts' : posts
+        'posts' : Post.objects.all()
     }
     return render(request, 'blog/home.html', context)
 
